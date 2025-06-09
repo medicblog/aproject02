@@ -1,7 +1,7 @@
 // @ts-check
 import getTable from "./modules/gettable.js";
 import checkTable from "./modules/checkTable.js";
-import utils from "./modules/utils.js";
+
 (function main() {
     if (typeof window !== 'object' || window.self !== window.top) {
         return;
