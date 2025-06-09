@@ -1,0 +1,47 @@
+body,
+.page,
+.page *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+body{
+    background-color:rgba(0,100,0,.2);
+    font:15px monospace,sans-serif
+}
+.page{    
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:stretch
+}
+.page>*{
+    padding:.7em
+}
+header,footer{
+    flex-basis:50px
+}
+main{
+    flex-grow:1
+}
+.page button{
+    margin:1em 0;
+    padding: 5px;
+    cursor:pointer
+}
+#ulist{
+    padding:5px;
+    border:2px solid #000
+}
+#ulist ul{
+    margin:1em 0;
+    padding:.5em;
+    list-style-type:none;
+    border:1px solid #000;
+    border-radius:10px;
+    background-color:rgba(255,255,255,.5)
+}
+#ulist li{
+    padding:.2em
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "field1":"france",
+        "field2":"paris",
+        "isTrue":true,
+        "append":null
+    },
+    {
+        "id":2,
+        "field1":"kenya",
+        "field2":"nairobi",
+        "isTrue":false,
+        "append":0
+    },
+    {
+        "id":3,
+        "field1":"Venezuela",
+        "field2":"Caracas",
+        "isTrue":false,
+        "append":0
+    }
+]
