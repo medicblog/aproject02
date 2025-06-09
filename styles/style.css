@@ -43,33 +43,16 @@ button:hover{
 button:disabled{
     opacity:.5
 }
-#ulist{
-    padding:5px;
-    border:2px solid #000
-}
-#ulist ul{
-    margin:1em 0;
-    padding:.5em;
-    list-style-type:none;
-    border:1px solid #000;
-    border-radius:10px;
-    background-color:rgba(255,255,255,.4)
-}
-#ulist li{
-    padding:.2em
-}
 #msg{
     margin:.5em 0;
     padding:1em
 }
 figure{
-    border:2px solid red;
     width:min(500px, 100%);
     height:500px
 }
 img{
     display: block;
-    outline:2px dashed yellowgreen;
     width:100%;
     height:100%;
     object-fit: contain;
