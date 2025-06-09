@@ -11,48 +11,51 @@ import utils from "./modules/utils.js";
         () => {
             try {
                 const btn = document.getElementById('btn');
-                const ulist = document.getElementById('ulist');
                 const msg = document.getElementById('msg');
+                const img = document.getElementById('img');
                 if (!(
                     msg
                     && btn instanceof HTMLButtonElement
-                    && ulist instanceof HTMLElement
+                    && img instanceof HTMLImageElement                    
                 ))
                 {
                     throw new Error('elements:failed');
                 }
-                const [min, max] = [100000, 10000000];                
-                btn.addEventListener(
-                    'mouseup',
-                    () => {
-                        msg.textContent = `ulist-code: ${utils.rnd(min, max)}`;
-                        getTable('../data/table0.json')
-                        .then((res) => {
-                            if (checkTable(res))
-                            {
-                                let uls = [];
-                                res.forEach((row) => {
-                                    let lis = '';
-                                    const E = Object.entries(row);
-                                    for (const [k, v] of E) {
-                                        lis += `<li><b>${k} :</b><span>${v}</span></li>`;
-                                    }
-                                    lis = `<ul>${lis}</ul>`;
-                                    uls.push(lis);
-                                });
-                                ulist.innerHTML = '';
-                                ulist.insertAdjacentHTML(
-                                    `beforeend`,
-                                    uls.join('')
-                                );                        
+
+                const limit = 10;
+                const API_URL = `https://api.thecatapi.com/v1/images/search?limit=${limit}`;
+
+                getTable(API_URL)
+                .then((res) => {
+                    console.log(res);
+                    msg.textContent =  `check table : ${checkTable(res)}`;
+
+                    let i = -1;
+
+                    btn.addEventListener(
+                        'mouseup',
+                        (e) => {
+                            e.stopPropagation();
+
+                            i++;
+                            
+                            if (i > limit - 1) {
+                                i = 0;
                             }
-                        })
-                        .catch((err) => {
-                            msg.textContent = `${err.message}`;
-                        });
-                    },
-                    false
-                );
+                            
+                            console.log(i);
+
+                            if (res[i] && Object.hasOwn(res[i], 'url'))
+                            {
+                                img.src = `${res[i].url}`;
+                            }
+                        },
+                        false
+                    );
+                })
+                .catch((err) => {
+                    msg.textContent = `${err.message}`;
+                });
             } catch(err) {
                 console.error(err.message);
             }
