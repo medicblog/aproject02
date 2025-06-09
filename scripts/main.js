@@ -1,7 +1,6 @@
 // @ts-check
 import getTable from "./modules/gettable.js";
 import checkTable from "./modules/checkTable.js";
-
 (function main() {
     if (typeof window !== 'object' || window.self !== window.top) {
         return;
@@ -21,16 +20,12 @@ import checkTable from "./modules/checkTable.js";
                 {
                     throw new Error('elements:failed');
                 }
-
                 const limit = 20;
                 const API_URL = `https://api.thecatapi.com/v1/images/search?limit=${limit}`;
-
                 getTable(API_URL)
                 .then((res) => {
                     msg.textContent =  `check table : ${checkTable(res)}`;
-
                     let i = -1;
-
                     btn.addEventListener(
                         'mouseup',
                         (e) => {
