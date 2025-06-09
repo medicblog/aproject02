@@ -22,12 +22,11 @@ import checkTable from "./modules/checkTable.js";
                     throw new Error('elements:failed');
                 }
 
-                const limit = 10;
+                const limit = 20;
                 const API_URL = `https://api.thecatapi.com/v1/images/search?limit=${limit}`;
 
                 getTable(API_URL)
                 .then((res) => {
-                    console.log(res);
                     msg.textContent =  `check table : ${checkTable(res)}`;
 
                     let i = -1;
@@ -42,8 +41,6 @@ import checkTable from "./modules/checkTable.js";
                             if (i > limit - 1) {
                                 i = 0;
                             }
-                            
-                            console.log(i);
 
                             if (res[i] && Object.hasOwn(res[i], 'url'))
                             {
