@@ -53,7 +53,7 @@ button:disabled{
     list-style-type:none;
     border:1px solid #000;
     border-radius:10px;
-    background-color:rgba(255,255,255,.5)
+    background-color:rgba(255,255,255,.4)
 }
 #ulist li{
     padding:.2em
