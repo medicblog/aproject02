@@ -26,9 +26,22 @@ main{
     flex-grow:1
 }
 .page button{
+    border:1px solid transparent;
+    outline:1px solid #000;
+    background: none;
+    background-color: rgba(255,255,255,.5);
+    display:block;
+    width:140px;
     margin:1em 0;
-    padding: 5px;
+    padding:5px;
     cursor:pointer
+}
+button:hover{
+    outline-width: 2px;
+    background-color:rgba(200,200,200,.5);
+}
+button:disabled{
+    opacity:.5
 }
 #ulist{
     padding:5px;
@@ -44,4 +57,8 @@ main{
 }
 #ulist li{
     padding:.2em
+}
+#msg{
+    margin:.5em 0;
+    padding:1em
 }

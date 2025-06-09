@@ -1,9 +1,7 @@
 // @ts-check
-
-import getTable    from "./modules/gettable.js";
+import getTable from "./modules/gettable.js";
 import checkTable from "./modules/checkTable.js";
 import utils from "./modules/utils.js";
-
 (function main() {
     if (typeof window !== 'object' || window.self !== window.top) {
         return;
@@ -14,9 +12,9 @@ import utils from "./modules/utils.js";
             try {
                 const btn = document.getElementById('btn');
                 const ulist = document.getElementById('ulist');
-                const prg = document.getElementById('prg');
+                const msg = document.getElementById('msg');
                 if (!(
-                    prg
+                    msg
                     && btn instanceof HTMLButtonElement
                     && ulist instanceof HTMLElement
                 ))
@@ -27,7 +25,7 @@ import utils from "./modules/utils.js";
                 btn.addEventListener(
                     'mouseup',
                     () => {
-                        prg.textContent = `ulist-code: ${utils.rnd(min, max)}`;
+                        msg.textContent = `ulist-code: ${utils.rnd(min, max)}`;
                         getTable('../data/table0.json')
                         .then((res) => {
                             if (checkTable(res))
@@ -42,18 +40,16 @@ import utils from "./modules/utils.js";
                                     lis = `<ul>${lis}</ul>`;
                                     uls.push(lis);
                                 });
-                                const result = uls.join('');
                                 ulist.innerHTML = '';
                                 ulist.insertAdjacentHTML(
                                     `beforeend`,
-                                    result
+                                    uls.join('')
                                 );                        
                             }
                         })
                         .catch((err) => {
-                            prg.textContent = `${err.message}`;
+                            msg.textContent = `${err.message}`;
                         });
-
                     },
                     false
                 );
